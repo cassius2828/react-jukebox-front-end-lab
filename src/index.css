@@ -1,3 +1,4 @@
+/* Root Styles */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,6 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Link Styles */
 a {
   font-weight: 500;
   color: #646cff;
@@ -22,6 +24,7 @@ a:hover {
   color: #535bf2;
 }
 
+/* Body Styles */
 body {
   margin: 0;
   display: flex;
@@ -30,11 +33,13 @@ body {
   min-height: 100vh;
 }
 
+/* Heading Styles */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
+/* Button Styles */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -49,7 +54,8 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button.delete-btn:hover, button.cancel-btn:hover {
+button.delete-btn:hover,
+button.cancel-btn:hover {
   border-color: #db3f2a;
 }
 button.edit-btn:hover {
@@ -63,6 +69,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Form Container Styles */
 .form-container {
   display: flex;
   flex-direction: column;
@@ -70,14 +77,14 @@ button:focus-visible {
   align-items: center;
   width: 100%;
 }
-legend {
-  margin: 3rem 0;
-  font-size: 2rem;
-}
 .form-container form {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+legend {
+  margin: 3rem 0;
+  font-size: 2rem;
 }
 label {
   margin-right: 1rem;
@@ -85,26 +92,19 @@ label {
 input {
   margin-right: 2rem;
 }
-
 form button.cancel-btn {
   margin-right: 2rem;
 }
 
-/* track list */
-
+/* Track List Styles */
 .track-list-container {
- text-align: center;
+  text-align: center;
   margin-top: 4rem;
 }
 .track-list {
   display: flex;
   flex-wrap: wrap;
 }
-
-.track-card span {
-  color: #db3f2a;
-}
-
 .track-card {
   max-width: 25rem;
 }
@@ -117,33 +117,37 @@ form button.cancel-btn {
   margin: 2rem;
   border-radius: 8px;
 }
+.track-card span,
+.form-container span {
+  color: #db3f2a;
+}
 
+/* Button Container Styles */
 .btn {
   margin: 0 1rem;
 }
 
-/* now playing */
+/* Now Playing Styles */
 .now-playing-container {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-top: 4rem;
 }
-
 #add-new-track-btn {
-  position: absolute;
-  top: 50%;
-  right: 10%;
-  transform: translate(-50%, -50%);
+  max-width: 15rem;
+  margin: auto;
 }
 .now-playing {
-  max-width: 25rem;
+  width: 25rem;
   margin: 2rem auto;
 }
-
 .now-playing h2:first-child {
   text-align: center;
   font-weight: 800;
 }
 
+/* Light Mode Styles */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
