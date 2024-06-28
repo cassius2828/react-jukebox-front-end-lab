@@ -69,6 +69,25 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* nav */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+}
+nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 40%;
+}
+nav h2, nav ul {
+  margin: 1rem 3rem;
+}
+
 /* Form Container Styles */
 .form-container {
   display: flex;
@@ -94,6 +113,56 @@ input {
 }
 form button.cancel-btn {
   margin-right: 2rem;
+}
+
+/* auth form */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+.auth-form .form-group {
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+.auth-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.87);
+}
+.auth-form input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #646cff;
+  background-color: #2b2b2b;
+  color: rgba(255, 255, 255, 0.87);
+}
+.auth-form input:focus {
+  outline: none;
+  border-color: #535bf2;
+}
+.auth-form button {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #646cff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+.auth-form button:hover {
+  background-color: #535bf2;
 }
 
 /* Track List Styles */

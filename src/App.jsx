@@ -1,11 +1,14 @@
 // src/App.jsx
 
 import { useEffect, useState } from "react";
-import NowPlaying from "./components/NowPlaying";
-import TrackForm from "./components/TrackForm";
-import TrackList from "./components/TrackList";
+import NowPlaying from "./components/Tracks/NowPlaying";
+import TrackForm from "./components/Tracks/TrackForm";
+import TrackList from "./components/Tracks/TrackList";
 import { create, index, remove, show, update } from "./services/trackService";
 import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import SignUp from "./components/Auth/SignUp";
+import SignIn from "./components/Auth/SignIn";
 
 ////////////////////
 // App Component
@@ -59,15 +62,11 @@ const App = () => {
     fetchTracks();
   };
 
-  ////////////////////
-  // Get songs from db
-  ////////////////////
-  useEffect(() => {
-    fetchTracks();
-  }, []);
+
 
   return (
     <div className="main-container">
+      <Navbar />
       {showForm && (
         <TrackForm
           handleAddTrack={handleAddTrack}
@@ -81,6 +80,21 @@ const App = () => {
         />
       )}
       <Routes>
+        <Route path="/auth/sign-up" element={<SignUp />} />
+        <Route path="/auth/sign-in" element={<SignIn />} />{" "}
+        <Route
+          path="/tracks"
+          element={
+            <TrackList
+              handleRemoveTrack={handleRemoveTrack}
+              selectTrackToPlay={selectTrackToPlay}
+              setIsEditing={setIsEditing}
+              setShowForm={setShowForm}
+              tracks={tracks}
+              fetchTracks={fetchTracks}
+            />
+          }
+        />
         <Route
           path="/tracks/:tracksId"
           element={
@@ -92,15 +106,10 @@ const App = () => {
               showForm={showForm}
             />
           }
-        />
+        />{" "}
+        <Route path="/" element={<h1>HOme</h1>} />
+        <Route path="*" element={<h1>404</h1>} />
       </Routes>
-      <TrackList
-        handleRemoveTrack={handleRemoveTrack}
-        selectTrackToPlay={selectTrackToPlay}
-        setIsEditing={setIsEditing}
-        setShowForm={setShowForm}
-        tracks={tracks}
-      />
     </div>
   );
 };

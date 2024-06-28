@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import TrackCard from "./TrackCard";
 
 const TrackList = ({
@@ -6,7 +7,14 @@ const TrackList = ({
   setShowForm,
   setIsEditing,
   handleRemoveTrack,
+  fetchTracks,
 }) => {
+  ////////////////////
+  // Get songs from db
+  ////////////////////
+  useEffect(() => {
+    fetchTracks();
+  }, []);
   return (
     <div className="track-list-container">
       <h2>Song List</h2>
