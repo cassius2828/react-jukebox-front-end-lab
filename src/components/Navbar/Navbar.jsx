@@ -7,10 +7,12 @@ const navRoutes = [
   { path: "/auth/sign-out", text: "sign out" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
+  // console.log(user)
   return (
     <nav>
-      <h2>Juke Box</h2>
+      <h2>Juke Box{user && " Welcome " + user?.username + "!"}</h2>
+
       <ul>
         {navRoutes.map((item) => {
           return (

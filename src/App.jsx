@@ -18,6 +18,16 @@ const App = () => {
   const [tracks, setTracks] = useState([]);
   const [playTrack, setPlayTrack] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const userData = localStorage.authToken.split(".")[1];
+    const decoded = window.atob(userData);
+    const currentUser = JSON.parse(decoded);
+    if (currentUser) {
+      setUser(currentUser?.user);
+    }
+  }, []);
 
   ////////////////////
   // Fetch tracks function
@@ -62,11 +72,9 @@ const App = () => {
     fetchTracks();
   };
 
-
-
   return (
     <div className="main-container">
-      <Navbar />
+      <Navbar user={user} />
       {showForm && (
         <TrackForm
           handleAddTrack={handleAddTrack}
